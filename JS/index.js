@@ -53,6 +53,13 @@ const renderSpice = (spice, outputDiv) => {
     spicePrice.classList.add("card-text");
     newSpice.appendChild(spicePrice);
 
+    const deleteButton = document.createElement('button');
+    deleteButton.innerText = "DELETE";
+    deleteButton.classList.add("btn", "btn-primary");
+    deleteButton.addEventListener('click', () => deleteSpice(spice.id));
+
+    newSpice.appendChild(deleteButton);
+
     spiceCard.appendChild(newSpice);
 
     outputDiv.appendChild(spiceColumn);
@@ -93,6 +100,13 @@ document.querySelector("section#postSection > form").addEventListener('submit', 
     }).catch(err => console.log(err));
 });
 
+const deleteKitten = id => {
+    axios.delete(`${baseURL}/deleteSpice/${id}`)
+        .then(res => {
+            console.log(res);
+            getAllSpices();
+        }).catch(err => console.log(err));
+}
 
 
 
