@@ -9,13 +9,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
         integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <style>
-        form>input {
-            display: block;
-        }
-    </style>
 </head>
 
 <body class="container">
@@ -27,8 +20,8 @@
                 <input type="text" id="spiceName" name="name" class="form-control" required>
                 <label for="spiceCuisine" class="form-label">Cuisine:</label>
                 <input type="text" id="spiceCuisine" name="cuisine" class="form-control" required>
-                <label for="spiceFlavourRating" class="form-label">Delicousness:</label>
-                <input type="number" id="spiceFlavourRating" name="delicousness" class="form-control" required min="1" max="25">
+                <label for="spiceFlavourRating" class="form-label">FlavourRating:</label>
+                <input type="number" id="spiceFlavourRating" name="flavourRating" class="form-control" required min="1" max="25">
                 <label for="spicePrice" class="form-label">Price:</label>
                 <input type="number" id="spicePrice" name="price" class="form-control mb-2" required min="1"
                     max="25">
@@ -36,14 +29,15 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </section>
+
         <section class="col-9">
             <h2>SPICE</h2>
-            <section id="getByIdSection">
+            <section id="getById">
                 <h3>GET BY ID</h3>
                 <label for="spiceId" class="form-label">ID:</label>
                 <div class="row">
                     <input type="number" name="spiceId" id="spiceId" class="form-control col-10" min="1">
-                    <button class="btn btn-primary col-2">GET</button>
+                    <button id="getByIdButton" class="btn btn-primary col-2">GET</button>
                 </div>
                 <div id="getByIdOutput">
                 </div>
@@ -54,6 +48,33 @@
                 </div>
             </section>
         </section>
+
+        <section id="updateSpice">
+            <h4>UPDATE Spice</h4>
+            <form>
+                <label for="updateName">Change the Name</label>
+                <br>
+                <input id="updateName" type="text" name="Name" required>
+                <br>
+                <label for="updateCuisine">Change the Cuisine Type</label>
+                <br>
+                <input id="updateCuisine" type="text" name="cuisine">
+                <br>
+                <label for="updateFlavourRating">Change the Flavour Rating</label>
+                <br>
+                <input id="updateFlavourRating" type="number" name="flavourRating" >
+                <br>
+                <label for="updatePrice">Change the Price</label>
+                <br>
+                <input id="updatePrice" type="number" name="PRICE" >
+                </select>
+                <br>
+                <br>
+                <button type="reset" >RESET</button>
+                <button type="submit" >SUBMIT</button>
+            </form>
+        </section>
+        
     </main>
     <script src="../js/index.js"></script>
 </body>
