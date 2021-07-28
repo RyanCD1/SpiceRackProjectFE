@@ -39,7 +39,7 @@ const renderSpice = (spice, outputDiv) => {
 
 
     const spiceFlavourRating = document.createElement("p");
-    spiceFlavourRating.innerText = `Delicousness: ${spice.delicousness}`;
+    spiceFlavourRating.innerText = `flavourRating: ${spice.flavourRating}`;
     spiceFlavourRating.classList.add("card-text");
     newSpice.appendChild(spiceFlavourRating);
 
@@ -68,6 +68,31 @@ const getSpiceById = () => {
 }
 
 document.querySelector("button#getByIdButton").addEventListener('click', getSpiceById);
+
+document.querySelector("section#postSection > form").addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+
+    const data = {
+        name: form.name.value,
+        cuisine: form.cuisine.value,
+        delicousness: form.delicousness.value,
+        price: form.price.value
+    }
+
+    console.log("DATA: ", data);
+
+    axios.post(`${baseURL}/createSpice`, data)
+    .then((res) => {
+        console.log(res);
+        getAllSpices();
+
+        form.reset(); 
+        form.name.focus();
+    }).catch(err => console.log(err));
+});
+
 
 
 

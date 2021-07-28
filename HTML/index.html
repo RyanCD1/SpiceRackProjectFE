@@ -13,7 +13,23 @@
 
 <body class="container">
     <main class="row">
-       
+        <section id="postSection" class="col-3">
+            <h2>POST</h2>
+            <form>
+                <label for="spiceName" class="form-label">Name:</label>
+                <input type="text" id="spiceName" name="name" class="form-control" required>
+                <label for="spiceCuisine" class="form-label">Cuisine:</label>
+                <input type="text" id="spiceCuisine" name="cuisine" class="form-control" required>
+                <label for="spiceFlavourRating" class="form-label">FlavourRating:</label>
+                <input type="number" id="spiceFlavourRating" name="flavourRating" class="form-control" required min="1" max="25">
+                <label for="spicePrice" class="form-label">Price:</label>
+                <input type="number" id="spicePrice" name="price" class="form-control mb-2" required min="1"
+                    max="25">
+                <button type="reset" class="btn btn-primary">Reset</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </section>
+
         <section class="col-9">
             <h2>SPICE</h2>
             <section id="getById">
