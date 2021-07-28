@@ -4,8 +4,22 @@
 const baseURL = "http://localhost:8080";
 
 const getByIdOutput = document.querySelector("#getByIdOutput");
+const getAllOutput = document.querySelector("#getAllOutput");
 
 const spiceId = document.querySelector("#spiceId");
+
+const getAllSpices = () => {
+    axios.get(`${baseURL}/getAllSpices`)
+    .then(res => {
+        const spices = res.data;
+
+        getAllOutput.innerHTML = "";
+
+        spices.forEach(spice => renderSpice(spice, getAllOutput));
+    }).catch(err => console.log(err));
+}
+
+getAllSpices();
 
 const renderSpice = (spice, outputDiv) => {   
     const spiceColumn = document.createElement('div');
