@@ -6,6 +6,23 @@ const baseURL = "http://localhost:8080";
 const getByIdOutput = document.querySelector("#getByIdOutput");
 const getAllOutput = document.querySelector("#getAllOutput");
 
+
+const updateName = document.querySelector("#updateName");
+const updateCuisine = document.querySelector("#updateCuisine");
+const updateFlavourRating = document.querySelector("#updateFlavourRating");
+const updatePrice = document.querySelector("#updatePrice");
+
+
+
+const  updateData = {
+    id: 0,
+    name: updateName.value,
+    cuisine: updateCuisine.value,
+    flavourRating: updateFlavourRating.value,
+    price: updatePrice.value
+
+}
+
 const spiceId = document.querySelector("#spiceId");
 
 const getAllSpices = () => {
@@ -58,6 +75,19 @@ const renderSpice = (spice, outputDiv) => {
     deleteButton.classList.add("btn", "btn-primary");
     deleteButton.addEventListener('click', () => deleteSpice(spice.id));
 
+    const updateButton = document.createElement('button');
+    updateButton.innerText = "UPDATE";
+    updateButton.classList.add("btn", "btn-primary");
+    updateButton.addEventListener('click', () => {
+        updateData.id=spice.id,
+        updateName.value = spice.name,
+        updateCuisine.value = spice.cuisine,
+        updateFlavourRating.value = spice.flavourRating,
+        updatePrice.value = spice.price
+    });
+
+    newSpice.appendChild(updateButton);
+
     newSpice.appendChild(deleteButton);
 
     spiceCard.appendChild(newSpice);
@@ -100,7 +130,7 @@ document.querySelector("section#postSection > form").addEventListener('submit', 
     }).catch(err => console.log(err));
 });
 
-const deleteKitten = id => {
+const deleteSpice = id => {
     axios.delete(`${baseURL}/deleteSpice/${id}`)
         .then(res => {
             console.log(res);
@@ -109,4 +139,27 @@ const deleteKitten = id => {
 }
 
 
+document.querySelector('#updateSpice>form').addEventListener('submit',  (e) => {
+    e.preventDefault();
+    const data = {
+        name: updateName.value,
+        cuisine: updateCuisine.value,
+        flavourRating: updateFlavourRating.value,
+        price: updatePrice.value
+    }
+
+    axios.put(`${baseURL}/replaceSpice/${updateData.id}`, data)
+        .then(res => {
+            console.log(updateName);
+            const spice = res.data;
+            console.log(res.data);
+
+            console.log(spice.id);
+
+        }).catch(err => console.log(err));
+    
+        const updateForm = document.querySelector("section#updateSpice > form");
+        getAllSpices();
+    }
+)
 
