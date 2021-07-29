@@ -1,7 +1,7 @@
 "use strict";
 
 
-const baseURL = "http://localhost:8080";
+const baseURL = "http://localhost:8085";
 
 document.querySelector("section#postSection form").addEventListener('submit', (e) => {
     e.preventDefault();

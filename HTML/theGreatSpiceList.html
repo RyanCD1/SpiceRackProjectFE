@@ -18,14 +18,20 @@
         form>input {
             display: block;
         }
-        body{
+
+        body {
             margin-left: 5%;
+            background-image: url('List.jpg');
+            background-repeat: no-repeat;
+             background-attachment: fixed;
+            background-size: 100%100%;
+
         }
         
     </style>
 </head>
 
-<body>
+<body id="container">
     <main class="row">
             <section id="leftSection" class="col col-9">
                 <h1 id="headings">The Great (Unformatted) Spice List</h1>
@@ -38,6 +44,7 @@
                 <button onclick="toggleGetAll()" id="getAllButton" class="btn btn-primary col-2">TOGGLE SPICE LIST</button>
                 <br>
                 <br>
+                <br>
                 <section id="getAllSection">
                     <div id="getAllOutput" class="card-group row row-cols-3 g-4">
                     </div>
@@ -45,7 +52,8 @@
             </section>
         </section>
          <section id="updateSpice">
-            <h4>UPDATE SPICE</h4>
+             <br>
+            <h4 style="color: rgb(53, 22, 22);">UPDATE SPICE</h4>
             <form>
                 <label for="updateName">Change the Name</label>
                 <br>
@@ -66,7 +74,7 @@
                 <br>
                 <br>
                 <button type="reset" class="btn btn-primary" >RESET</button>
-                <button type="submit" class="btn btn-primary" >SUBMIT</button>
+                <button id="submitUpdateForm" type="submit" class="btn btn-primary" >SUBMIT</button>
             </form>
         </section>
     </main>
