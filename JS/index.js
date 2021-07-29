@@ -36,6 +36,15 @@ const getAllSpices = () => {
     }).catch(err => console.log(err));
 }
 
+const toggleGetAll = () => {
+    var x = document.getElementById("getAllSection");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+}
+
 getAllSpices();
 
 const renderSpice = (spice, outputDiv) => {   
@@ -106,7 +115,7 @@ const getSpiceById = () => {
 
 document.querySelector("button#getByIdButton").addEventListener('click', getSpiceById);
 
-document.querySelector("section#postSection > form").addEventListener('submit', (e) => {
+document.querySelector("section#postSection form").addEventListener('submit', (e) => {
     e.preventDefault();
 
     const form = e.target;
@@ -150,16 +159,15 @@ document.querySelector('#updateSpice>form').addEventListener('submit',  (e) => {
 
     axios.put(`${baseURL}/replaceSpice/${updateData.id}`, data)
         .then(res => {
-            console.log(updateName);
-            const spice = res.data;
-            console.log(res.data);
-
-            console.log(spice.id);
-
+           
         }).catch(err => console.log(err));
     
         const updateForm = document.querySelector("section#updateSpice > form");
         getAllSpices();
+        location.reload();
     }
+
+
 )
+
 

@@ -1,0 +1,49 @@
+
+#titleofProject{
+    text-align: center;
+    color: rgba(163, 96, 8, 0.945);
+    text-decoration: underline;
+}
+
+.container{
+color: rgb(27, 27, 27);
+background-color: rgb(255, 255, 255);
+background-image: url('\spice-background.jpg');
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: 100%100%;
+text-decoration: underline;
+}
+
+  form>input {
+    background-color: rgb(144, 79, 79);
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: thistle;
+    
+  }
+
+  #postForm input {
+    background-color: rgb(163, 62, 62);
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: thistle;
+  }
+
+
+  .renderSpice{
+    background-color: rgb(0, 0, 0);
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: thistle;
+  }
+
