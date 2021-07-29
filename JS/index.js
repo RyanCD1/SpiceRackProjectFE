@@ -1,7 +1,7 @@
 "use strict";
 
 
-const baseURL = "http://localhost:8080";
+const baseURL = "http://localhost:8085";
 
 const getByIdOutput = document.querySelector("#getByIdOutput");
 const getAllOutput = document.querySelector("#getAllOutput");
@@ -62,28 +62,13 @@ const renderSpice = (spice, outputDiv) => {
     spicePrice.classList.add("card-text");
     newSpice.appendChild(spicePrice);
 
-    const deleteButton = document.createElement('button');
-    deleteButton.innerText = "DELETE";
-    deleteButton.classList.add("btn", "btn-primary", "space");
-    deleteButton.addEventListener('click', () => deleteSpice(spice.id));
-
-    const updateButton = document.createElement('button');
-    updateButton.innerText = "UPDATE";
-    updateButton.classList.add("btn", "btn-primary", "space");
-    updateButton.addEventListener('click', () => {
-        updateData.id=spice.id,
-        updateName.value = spice.name,
-        updateCuisine.value = spice.cuisine,
-        updateFlavourRating.value = spice.flavourRating,
-        updatePrice.value = spice.price
-    });
-
     spiceCard.appendChild(newSpice);
 
     outputDiv.appendChild(spiceColumn);
 }
 
 const getSpiceById = () => {
+    console.log
     axios.get(`${baseURL}/getSpice/${spiceId.value}`)
     .then(res => {
         const spice = res.data;
@@ -95,35 +80,5 @@ const getSpiceById = () => {
 document.querySelector("button#getByIdButton").addEventListener('click', getSpiceById);
 
 
-const deleteSpice = id => {
-    axios.delete(`${baseURL}/deleteSpice/${id}`)
-        .then(res => {
-            console.log(res);
-            getAllSpices();
-        }).catch(err => console.log(err));
-}
-
-
-document.querySelector('#updateSpice>form').addEventListener('submit',  (e) => {
-    e.preventDefault();
-    const data = {
-        name: updateName.value,
-        cuisine: updateCuisine.value,
-        flavourRating: updateFlavourRating.value,
-        price: updatePrice.value
-    }
-
-    axios.put(`${baseURL}/replaceSpice/${updateData.id}`, data)
-        .then(res => {
-           
-        }).catch(err => console.log(err));
-    
-        const updateForm = document.querySelector("section#updateSpice > form");
-        getAllSpices();
-        location.reload();
-    }
-
-
-)
 
 

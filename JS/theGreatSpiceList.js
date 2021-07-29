@@ -1,7 +1,7 @@
 "use strict";
 
 
-const baseURL = "http://localhost:8080";
+const baseURL = "http://localhost:8085";
 
 const getByIdOutput = document.querySelector("#getByIdOutput");
 const getAllOutput = document.querySelector("#getAllOutput");
@@ -52,7 +52,7 @@ const renderSpice = (spice, outputDiv) => {
     spiceColumn.classList.add("col");
 
     const spiceCard = document.createElement('div');
-    spiceCard.classList.add("list");
+    spiceCard.classList.add("card");
     spiceColumn.appendChild(spiceCard);
 
     const newSpice = document.createElement('div');
@@ -80,12 +80,14 @@ const renderSpice = (spice, outputDiv) => {
     newSpice.appendChild(spicePrice);
 
     const deleteButton = document.createElement('button');
-    deleteButton.id="deleteButton";
+    deleteButton.className = "deleteButton";
+    deleteButton.id=spice.id;
     deleteButton.innerText = "DELETE";
     deleteButton.classList.add("btn", "btn-primary", "space");
     deleteButton.addEventListener('click', () => deleteSpice(spice.id));
 
     const updateButton = document.createElement('button');
+    updateButton.className="updateButton";
     updateButton.innerText = "UPDATE";
     updateButton.classList.add("btn", "btn-primary", "space");
     updateButton.addEventListener('click', () => {
@@ -105,6 +107,9 @@ const renderSpice = (spice, outputDiv) => {
     outputDiv.appendChild(spiceColumn);
 }
 
+ 
+
+
 
 const deleteSpice = id => {
     axios.delete(`${baseURL}/deleteSpice/${id}`)
@@ -112,6 +117,7 @@ const deleteSpice = id => {
             console.log(res);
             getAllSpices();
         }).catch(err => console.log(err));
+        alert("You have succesfully deleted a Spice!")
 }
 
 
@@ -123,5 +129,21 @@ document.querySelector('#updateSpice>form').addEventListener('submit',  (e) => {
         flavourRating: updateFlavourRating.value,
         price: updatePrice.value
     }
-}
+
+    axios.put(`${baseURL}/replaceSpice/${updateData.id}`, data)
+        .then(res => {
+           
+        }).catch(err => console.log(err));
+    
+        
+        getAllSpices();
+       
+
+        alert("You have succesffuly updated a Spice!");
+        location.reload();
+    }
+
+    
 )
+
+
