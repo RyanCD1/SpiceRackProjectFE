@@ -3,7 +3,7 @@
 
 const baseURL = "http://localhost:8085";
 
-const getByIdOutput = document.querySelector("#getByIdOutput");
+
 const getAllOutput = document.querySelector("#getAllOutput");
 
 
