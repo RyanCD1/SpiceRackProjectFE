@@ -52,7 +52,7 @@ const renderSpice = (spice, outputDiv) => {
     spiceColumn.classList.add("col");
 
     const spiceCard = document.createElement('div');
-    spiceCard.classList.add("list");
+    spiceCard.classList.add("card");
     spiceColumn.appendChild(spiceCard);
 
     const newSpice = document.createElement('div');
@@ -107,6 +107,9 @@ const renderSpice = (spice, outputDiv) => {
     outputDiv.appendChild(spiceColumn);
 }
 
+ 
+
+
 
 const deleteSpice = id => {
     axios.delete(`${baseURL}/deleteSpice/${id}`)
@@ -118,7 +121,7 @@ const deleteSpice = id => {
 }
 
 
-document.querySelector('button#submitUpdateForm').addEventListener('submit',  (e) => {
+document.querySelector('#updateSpice>form').addEventListener('submit',  (e) => {
     e.preventDefault();
     const data = {
         name: updateName.value,
@@ -132,12 +135,15 @@ document.querySelector('button#submitUpdateForm').addEventListener('submit',  (e
            
         }).catch(err => console.log(err));
     
-        const updateForm = document.querySelector("section#updateSpice > form");
+        
         getAllSpices();
        
 
         alert("You have succesffuly updated a Spice!");
+        location.reload();
     }
 
+    
 )
+
 
