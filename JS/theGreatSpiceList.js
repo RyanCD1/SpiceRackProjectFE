@@ -1,7 +1,7 @@
 "use strict";
 
 
-const baseURL = "http://localhost:8080";
+const baseURL = "http://localhost:8085";
 
 const getByIdOutput = document.querySelector("#getByIdOutput");
 const getAllOutput = document.querySelector("#getAllOutput");
@@ -80,12 +80,14 @@ const renderSpice = (spice, outputDiv) => {
     newSpice.appendChild(spicePrice);
 
     const deleteButton = document.createElement('button');
-    deleteButton.id="deleteButton";
+    deleteButton.className = "deleteButton";
+    deleteButton.id=spice.id;
     deleteButton.innerText = "DELETE";
     deleteButton.classList.add("btn", "btn-primary", "space");
     deleteButton.addEventListener('click', () => deleteSpice(spice.id));
 
     const updateButton = document.createElement('button');
+    updateButton.className="updateButton";
     updateButton.innerText = "UPDATE";
     updateButton.classList.add("btn", "btn-primary", "space");
     updateButton.addEventListener('click', () => {
@@ -112,10 +114,11 @@ const deleteSpice = id => {
             console.log(res);
             getAllSpices();
         }).catch(err => console.log(err));
+        alert("You have succesfully deleted a Spice!")
 }
 
 
-document.querySelector('#updateSpice>form').addEventListener('submit',  (e) => {
+document.querySelector('button#submitUpdateForm').addEventListener('submit',  (e) => {
     e.preventDefault();
     const data = {
         name: updateName.value,
@@ -123,5 +126,18 @@ document.querySelector('#updateSpice>form').addEventListener('submit',  (e) => {
         flavourRating: updateFlavourRating.value,
         price: updatePrice.value
     }
-}
+
+    axios.put(`${baseURL}/replaceSpice/${updateData.id}`, data)
+        .then(res => {
+           
+        }).catch(err => console.log(err));
+    
+        const updateForm = document.querySelector("section#updateSpice > form");
+        getAllSpices();
+       
+
+        alert("You have succesffuly updated a Spice!");
+    }
+
 )
+
