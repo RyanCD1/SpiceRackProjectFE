@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href="#">
+    <title>Post Form</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/AddForm.css" type="text/css">
+   
+  </head>
+  <body id="back">
+    <div class="main-block">
+      <div class="left-part">
+        
+        <h1 style="font-size: 40pt">
+        <i style="font-size: 40pt">
+        <div class="hyperlinkHome">
+          <a class="btn btn-secondary" style="font-size: 20pt; color: rgb(255, 157, 0);" HREF="http://127.0.0.1:5500/SpiceRack/HTML/index.html">Return Home</a>
+            <a class="btn btn-secondary" id="linkToSpiceButton" style="font-size: 20pt; color: rgb(255, 157, 0)"  HREF ="http://127.0.0.1:5500/SpiceRack/HTML/theGreatSpiceList.html">To the Great Spice List</a>
+            </div>
+
+      </div>
+      <section id="postSection" class="col-3">
+        <h3 style="font-size: 40pt;">ADD A NEW SPICE</h3>
+        
+        <div id= "postForm">
+        <form>
+            <label for="spiceName" class="form-label">Name:</label>
+            <input type="text" id="spiceName" name="name" class="form-control" required>
+            <label for="spiceCuisine" class="form-label">Cuisine:</label>
+            <input type="text" id="spiceCuisine" name="cuisine" class="form-control" required>
+            <label for="spiceFlavourRating" class="form-label">FlavourRating:</label>
+            <input type="number" id="spiceFlavourRating" name="flavourRating" class="form-control" required min="1" max="250">
+            <label for="spicePrice" class="form-label">Price:</label>
+            <input type="number" id="spicePrice" name="price" class="form-control mb-2" required min="1"
+                max="25">
+            <button type="reset" class="btn btn-primary">Reset</button>
+            <button id="submitPostForm" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    </section>
+    </div>
+  </body>
+  <script src="../JS/addForm.js"></script>
+</html>

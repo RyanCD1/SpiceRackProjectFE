@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>The Great Spice List</title>
+    <link rel="shortcut icon" href="#">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP Requests</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/theGreatSpiceList.css" type="text/css">
+    <style>
+        form>input {
+            display: block;
+        }
+        body{
+            margin-left: 5%;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <main class="row">
+            <section id="leftSection" class="col col-9">
+                <h1 id="headings">The Great (Unformatted) Spice List</h1>
+                <div id="buttoning">
+                    <a id="buttoning" style="font-size: 20pt; color: rgb(255, 157, 0)" class="btn btn-dark" href="http://127.0.0.1:5500/SpiceRack/HTML/index.html">Back to Home</a>
+                    <div id="getByIdOutput">
+                    </div>
+                    <br>
+                </section>
+                <button onclick="toggleGetAll()" id="getAllButton" class="btn btn-primary col-2">TOGGLE SPICE LIST</button>
+                <br>
+                <br>
+                <section id="getAllSection">
+                    <div id="getAllOutput" class="card-group row row-cols-3 g-4">
+                    </div>
+                
+            </section>
+        </section>
+         <section id="updateSpice">
+            <h4>UPDATE SPICE</h4>
+            <form>
+                <label for="updateName">Change the Name</label>
+                <br>
+                <input id="updateName" type="text" name="Name" required>
+                <br>
+                <label for="updateCuisine">Change the Cuisine Type</label>
+                <br>
+                <input id="updateCuisine" type="text" name="cuisine">
+                <br>
+                <label for="updateFlavourRating">Change the Flavour Rating</label>
+                <br>
+                <input id="updateFlavourRating" type="number" name="flavourRating" >
+                <br>
+                <label for="updatePrice">Change the Price</label>
+                <br>
+                <input id="updatePrice" type="number" name="PRICE" >
+                </select>
+                <br>
+                <br>
+                <button type="reset" class="btn btn-primary" >RESET</button>
+                <button type="submit" class="btn btn-primary" >SUBMIT</button>
+            </form>
+        </section>
+    </main>
+    <script src="../JS/theGreatSpiceList.js"></script>
+</body>
+
+</html>
