@@ -116,8 +116,9 @@ const deleteSpice = id => {
         .then(res => {
             console.log(res);
             getAllSpices();
+            alert("You have succesfully deleted a Spice!")
         }).catch(err => console.log(err));
-        alert("You have succesfully deleted a Spice!")
+        
 }
 
 
@@ -132,14 +133,18 @@ document.querySelector('#updateSpice>form').addEventListener('submit',  (e) => {
 
     axios.put(`${baseURL}/replaceSpice/${updateData.id}`, data)
         .then(res => {
+
+            console.log(res);
+
+            
            
         }).catch(err => console.log(err));
     
         
         getAllSpices();
        
-
         alert("You have succesffuly updated a Spice!");
+        
         location.reload();
     }
 

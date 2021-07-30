@@ -8,6 +8,7 @@ const getAllOutput = document.querySelector("#getAllOutput");
 
 const spiceId = document.querySelector("#spiceId");
 
+
 const getAllSpices = () => {
     axios.get(`${baseURL}/getAllSpices`)
     .then(res => {
@@ -67,6 +68,25 @@ const renderSpice = (spice, outputDiv) => {
     outputDiv.appendChild(spiceColumn);
 }
 
+// const getSpiceById = () => {
+//     console.log
+//     axios.get(`${baseURL}/getSpice/${spiceId.value}`)
+//     .then(res => {
+//         const spice = res.data;
+//         getByIdOutput.innerHTML = "";
+//         renderSpice(spice, getByIdOutput);
+//     }).catch(err => {
+//         Response;
+//         var myResponse = new Response (body, init)
+//         var myResponse = response.status;
+
+//         while (myResponse = 500) {
+//             alert("You have searched by an Id that does not exist or has been deleted");
+//         }
+        
+//         console.log(err); })
+// }
+
 const getSpiceById = () => {
     console.log
     axios.get(`${baseURL}/getSpice/${spiceId.value}`)
@@ -76,6 +96,7 @@ const getSpiceById = () => {
         renderSpice(spice, getByIdOutput);
     }).catch(err => console.log(err));
 }
+
 
 document.querySelector("button#getByIdButton").addEventListener('click', getSpiceById);
 
